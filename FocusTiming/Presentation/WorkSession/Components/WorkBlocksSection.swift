@@ -13,7 +13,7 @@ struct WorkSessionScreen: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 32) {
+            VStack(spacing: 48) {
                 
                 if let session = manager.session {
                     
@@ -27,38 +27,66 @@ struct WorkSessionScreen: View {
                     
                     DayProgressView(progress: manager.totalProgress)
                     
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Bloques de hoy")
-                            .font(.headline)
-                        
-                        ForEach(session.blocks.indices, id: \.self) { index in
-                            
-                            let block = session.blocks[index]
-                            
-                            WorkBlockRow(
-                                title: block.title,
-                                durationHours: block.duration / 3600,
-                                isActive: manager.currentBlockIndex == index,
-                                isCompleted: index < (manager.currentBlockIndex ?? 0)
-                            )
-                        }
-                    }
+                    blocksSection(session: session)
                     
-                    Button("Finalizar jornada") {
-                        manager.finishSessionManually()
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.red)
+                    finishButton
                 }
             }
-            .padding()
+            .padding(.horizontal, 24)
+            .padding(.vertical, 40)
         }
-        .background(Color.black.ignoresSafeArea())
-        .foregroundColor(.white)
+        .background(Color.black)
+        .foregroundStyle(.white)
         .onAppear {
             manager.restoreSession()
         }
     }
+    
+    
+    // MARK: - Blocks Section
+    
+    private func blocksSection(session: WorkSession) -> some View {
+        VStack(alignment: .leading, spacing: 20) {
+            
+            Text("Bloques de hoy")
+                .font(.system(size: 18, weight: .semibold))
+                .opacity(0.9)
+            
+            VStack(spacing: 16) {
+                ForEach(session.blocks.indices, id: \.self) { index in
+                    
+                    let block = session.blocks[index]
+                    
+                    WorkBlockRow(
+                        title: block.title,
+                        durationHours: block.duration / 3600,
+                        isActive: manager.currentBlockIndex == index,
+                        isCompleted: index < (manager.currentBlockIndex ?? 0)
+                    )
+                }
+            }
+        }
+    }
+    
+    
+    // MARK: - Finish Button
+    
+    private var finishButton: some View {
+        Button(action: {
+            manager.finishSessionManually()
+        }) {
+            Text("Finalizar jornada")
+                .font(.system(size: 16, weight: .semibold))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
+                .background(Color.red.opacity(0.9))
+                .clipShape(RoundedRectangle(cornerRadius: 14))
+        }
+        .padding(.top, 12)
+    }
+    
+    
+    // MARK: - Formatter
     
     private func format(_ interval: TimeInterval) -> String {
         let total = Int(interval)

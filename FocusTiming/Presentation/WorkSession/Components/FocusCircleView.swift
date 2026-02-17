@@ -9,49 +9,88 @@ import SwiftUI
 
 struct FocusCircleView: View {
     
-    let progress: Double      // 0...1
+    let progress: Double
     let timeString: String
     let taskName: String
     let blockIndex: Int
     let totalBlocks: Int
     
+    private let circleSize: CGFloat = 260
+    private let ringWidth: CGFloat = 18
+    
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 32) {
             
             ZStack {
                 
+                // MARK: - Glass Background
+                
                 Circle()
-                    .stroke(Color.white.opacity(0.08), lineWidth: 20)
+                    .fill(.ultraThinMaterial)
+                    .overlay(
+                        Circle()
+                            .stroke(
+                                LinearGradient(
+                                    colors: [
+                                        Color.white.opacity(0.35),
+                                        Color.white.opacity(0.05)
+                                    ],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ),
+                                lineWidth: 1
+                            )
+                    )
+                    .shadow(color: .black.opacity(0.25), radius: 30, x: 0, y: 20)
+                
+                
+                // MARK: - Track
+                
+                Circle()
+                    .stroke(Color.white.opacity(0.08), lineWidth: ringWidth)
+                
+                
+                // MARK: - Progress
                 
                 Circle()
                     .trim(from: 0, to: progress)
                     .stroke(
-                        AngularGradient(
-                            gradient: Gradient(colors: [.blue, .purple]),
-                            center: .center
+                        LinearGradient(
+                            colors: [.blue, .purple],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
                         ),
                         style: StrokeStyle(
-                            lineWidth: 20,
+                            lineWidth: ringWidth,
                             lineCap: .round
                         )
                     )
                     .rotationEffect(.degrees(-90))
-                    .animation(.easeInOut(duration: 0.3), value: progress)
+                    .shadow(color: .blue.opacity(0.35), radius: 10)
+                    .animation(.easeInOut(duration: 0.4), value: progress)
                 
-                VStack(spacing: 6) {
+                
+                // MARK: - Center Content (con margen interno real)
+                
+                VStack(spacing: 14) {
+                    
                     Text(timeString)
-                        .font(.system(size: 42, weight: .bold, design: .monospaced))
+                        .font(.system(size: 32, weight: .bold, design: .monospaced))
+                        .foregroundStyle(.primary)
                     
                     Text(taskName)
-                        .font(.headline)
-                        .foregroundColor(.secondary)
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
                     
                     Text("Bloque \(blockIndex) de \(totalBlocks)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary.opacity(0.7))
                 }
+                .frame(width: circleSize * 0.62) // 🔥 clave para que no pegue
             }
-            .frame(width: 240, height: 240)
+            .frame(width: circleSize, height: circleSize)
         }
     }
 }

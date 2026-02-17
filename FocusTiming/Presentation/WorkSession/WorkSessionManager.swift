@@ -93,6 +93,7 @@ final class WorkSessionManager: ObservableObject {
             
             print("⏰ 5 minutes remaining in block")
             
+            vibrateSuccess()
             scheduleBlockNotifications()
         }
     }
@@ -225,5 +226,10 @@ final class WorkSessionManager: ObservableObject {
                 identifier: "work_block_\(index)"
             )
         }
+    }
+    
+    private func vibrateSuccess() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }
