@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC25CAF22F44151F0029ED13 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FC25CAF12F44151F0029ED13 /* GoogleSignIn */; };
+		FC25CAF42F44151F0029ED13 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FC25CAF32F44151F0029ED13 /* GoogleSignInSwift */; };
+		FC25CB1B2F441F010029ED13 /* FocusTimingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB172F441F010029ED13 /* FocusTimingApp.swift */; };
+		FC25CB1C2F441F010029ED13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC25CB142F441F010029ED13 /* Assets.xcassets */; };
+		FC25CB1D2F441F010029ED13 /* client_765664865086-q6lhblsiq223n9n4ao3gipaeii7h9ah1.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC25CB152F441F010029ED13 /* client_765664865086-q6lhblsiq223n9n4ao3gipaeii7h9ah1.apps.googleusercontent.com.plist */; };
+		FC25CB202F441F0B0029ED13 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB1F2F441F0B0029ED13 /* HTTPMethod.swift */; };
+		FC25CB222F441F200029ED13 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB212F441F200029ED13 /* APIRouter.swift */; };
+		FC25CB242F441F2F0029ED13 /* GoogleCalendarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB232F441F2F0029ED13 /* GoogleCalendarRouter.swift */; };
+		FC25CB282F441F540029ED13 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB272F441F540029ED13 /* NetworkClient.swift */; };
+		FC25CB2A2F441F740029ED13 /* NextEventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB292F441F740029ED13 /* NextEventResponse.swift */; };
+		FC25CB2C2F441F820029ED13 /* CalendarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB2B2F441F820029ED13 /* CalendarRepository.swift */; };
+		FC25CB2E2F441FAD0029ED13 /* FetchNextEventUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB2D2F441FAD0029ED13 /* FetchNextEventUseCase.swift */; };
+		FC25CB442F4427180029ED13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB3F2F4427180029ED13 /* ContentView.swift */; };
+		FC25CB452F4427180029ED13 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB412F4427180029ED13 /* DashboardViewModel.swift */; };
+		FC25CB492F4427500029ED13 /* AppSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB482F4427500029ED13 /* AppSpacing.swift */; };
+		FC25CB4B2F44275E0029ED13 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB4A2F44275E0029ED13 /* AppColors.swift */; };
+		FC25CB4D2F44276D0029ED13 /* AppTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB4C2F44276D0029ED13 /* AppTypography.swift */; };
+		FC25CB4F2F4427870029ED13 /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB4E2F4427870029ED13 /* GlassCard.swift */; };
+		FC25CB512F44279B0029ED13 /* GreetingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB502F44279B0029ED13 /* GreetingHeaderView.swift */; };
+		FC25CB532F4427A90029ED13 /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB522F4427A90029ED13 /* EventCardView.swift */; };
+		FC25CB552F4427B60029ED13 /* UpcomingEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB542F4427B60029ED13 /* UpcomingEventRow.swift */; };
+		FC25CB572F4428540029ED13 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB562F4428540029ED13 /* DashboardView.swift */; };
+		FC25CB592F442B450029ED13 /* SkeletonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB582F442B450029ED13 /* SkeletonCard.swift */; };
+		FC25CB5D2F442C370029ED13 /* AuthTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB5C2F442C370029ED13 /* AuthTokenManager.swift */; };
+		FC25CB612F44360F0029ED13 /* WorkBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB602F44360F0029ED13 /* WorkBlock.swift */; };
+		FC25CB632F4436240029ED13 /* WorkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB622F4436240029ED13 /* WorkSession.swift */; };
+		FC25CB672F4436B20029ED13 /* WorkSessionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB662F4436B20029ED13 /* WorkSessionBuilder.swift */; };
+		FC25CB692F4436C90029ED13 /* WorkSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB682F4436C90029ED13 /* WorkSessionManager.swift */; };
+		FC25CB6B2F44371C0029ED13 /* WorkSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB6A2F44371C0029ED13 /* WorkSessionState.swift */; };
+		FC25CB712F4438D40029ED13 /* WorkSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB6F2F4438D40029ED13 /* WorkSessionView.swift */; };
+		FC25CB732F443B040029ED13 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB722F443B040029ED13 /* RootTabView.swift */; };
+		FC25CB752F443C3E0029ED13 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB742F443C3E0029ED13 /* AuthManager.swift */; };
+		FC25CB792F443E080029ED13 /* FocusCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB782F443E080029ED13 /* FocusCircleView.swift */; };
+		FC25CB7B2F443E1A0029ED13 /* DayProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB7A2F443E1A0029ED13 /* DayProgressView.swift */; };
+		FC25CB7D2F443E200029ED13 /* WorkBlocksSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB7C2F443E200029ED13 /* WorkBlocksSection.swift */; };
+		FC25CB7F2F443E270029ED13 /* WorkBlockRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB7E2F443E270029ED13 /* WorkBlockRow.swift */; };
+		FC25CB812F443F610029ED13 /* CircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB802F443F610029ED13 /* CircularProgressRing.swift */; };
+		FC25CB832F4442310029ED13 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB822F4442310029ED13 /* LocalNotificationManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FC25CADB2F4413520029ED13 /* FocusTiming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusTiming.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC25CB142F441F010029ED13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC25CB152F441F010029ED13 /* client_765664865086-q6lhblsiq223n9n4ao3gipaeii7h9ah1.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "client_765664865086-q6lhblsiq223n9n4ao3gipaeii7h9ah1.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
+		FC25CB172F441F010029ED13 /* FocusTimingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimingApp.swift; sourceTree = "<group>"; };
+		FC25CB182F441F010029ED13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC25CB1F2F441F0B0029ED13 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		FC25CB212F441F200029ED13 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		FC25CB232F441F2F0029ED13 /* GoogleCalendarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarRouter.swift; sourceTree = "<group>"; };
+		FC25CB272F441F540029ED13 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		FC25CB292F441F740029ED13 /* NextEventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextEventResponse.swift; sourceTree = "<group>"; };
+		FC25CB2B2F441F820029ED13 /* CalendarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRepository.swift; sourceTree = "<group>"; };
+		FC25CB2D2F441FAD0029ED13 /* FetchNextEventUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNextEventUseCase.swift; sourceTree = "<group>"; };
+		FC25CB3F2F4427180029ED13 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FC25CB412F4427180029ED13 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		FC25CB482F4427500029ED13 /* AppSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSpacing.swift; sourceTree = "<group>"; };
+		FC25CB4A2F44275E0029ED13 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		FC25CB4C2F44276D0029ED13 /* AppTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTypography.swift; sourceTree = "<group>"; };
+		FC25CB4E2F4427870029ED13 /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
+		FC25CB502F44279B0029ED13 /* GreetingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderView.swift; sourceTree = "<group>"; };
+		FC25CB522F4427A90029ED13 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
+		FC25CB542F4427B60029ED13 /* UpcomingEventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventRow.swift; sourceTree = "<group>"; };
+		FC25CB562F4428540029ED13 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		FC25CB582F442B450029ED13 /* SkeletonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCard.swift; sourceTree = "<group>"; };
+		FC25CB5C2F442C370029ED13 /* AuthTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenManager.swift; sourceTree = "<group>"; };
+		FC25CB602F44360F0029ED13 /* WorkBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkBlock.swift; sourceTree = "<group>"; };
+		FC25CB622F4436240029ED13 /* WorkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSession.swift; sourceTree = "<group>"; };
+		FC25CB662F4436B20029ED13 /* WorkSessionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSessionBuilder.swift; sourceTree = "<group>"; };
+		FC25CB682F4436C90029ED13 /* WorkSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSessionManager.swift; sourceTree = "<group>"; };
+		FC25CB6A2F44371C0029ED13 /* WorkSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSessionState.swift; sourceTree = "<group>"; };
+		FC25CB6F2F4438D40029ED13 /* WorkSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSessionView.swift; sourceTree = "<group>"; };
+		FC25CB722F443B040029ED13 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		FC25CB742F443C3E0029ED13 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		FC25CB782F443E080029ED13 /* FocusCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCircleView.swift; sourceTree = "<group>"; };
+		FC25CB7A2F443E1A0029ED13 /* DayProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayProgressView.swift; sourceTree = "<group>"; };
+		FC25CB7C2F443E200029ED13 /* WorkBlocksSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkBlocksSection.swift; sourceTree = "<group>"; };
+		FC25CB7E2F443E270029ED13 /* WorkBlockRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkBlockRow.swift; sourceTree = "<group>"; };
+		FC25CB802F443F610029ED13 /* CircularProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressRing.swift; sourceTree = "<group>"; };
+		FC25CB822F4442310029ED13 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC25CAD82F4413520029ED13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC25CAF22F44151F0029ED13 /* GoogleSignIn in Frameworks */,
+				FC25CAF42F44151F0029ED13 /* GoogleSignInSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FC25CAD22F4413520029ED13 = {
+			isa = PBXGroup;
+			children = (
+				FC25CB192F441F010029ED13 /* FocusTiming */,
+				FC25CADC2F4413520029ED13 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FC25CADC2F4413520029ED13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CADB2F4413520029ED13 /* FocusTiming.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC25CB082F441F010029ED13 /* APIRouter */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB212F441F200029ED13 /* APIRouter.swift */,
+				FC25CB232F441F2F0029ED13 /* GoogleCalendarRouter.swift */,
+			);
+			path = APIRouter;
+			sourceTree = "<group>";
+		};
+		FC25CB092F441F010029ED13 /* HTTPMethod */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB1F2F441F0B0029ED13 /* HTTPMethod.swift */,
+			);
+			path = HTTPMethod;
+			sourceTree = "<group>";
+		};
+		FC25CB0A2F441F010029ED13 /* NetworkClient */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB272F441F540029ED13 /* NetworkClient.swift */,
+			);
+			path = NetworkClient;
+			sourceTree = "<group>";
+		};
+		FC25CB0B2F441F010029ED13 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB082F441F010029ED13 /* APIRouter */,
+				FC25CB092F441F010029ED13 /* HTTPMethod */,
+				FC25CB0A2F441F010029ED13 /* NetworkClient */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FC25CB0C2F441F010029ED13 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB2B2F441F820029ED13 /* CalendarRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FC25CB0D2F441F010029ED13 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB5B2F442C350029ED13 /* Utils */,
+				FC25CB0B2F441F010029ED13 /* Network */,
+				FC25CB0C2F441F010029ED13 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FC25CB0E2F441F010029ED13 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB5F2F44360A0029ED13 /* Dashboard */,
+				FC25CB602F44360F0029ED13 /* WorkBlock.swift */,
+				FC25CB622F4436240029ED13 /* WorkSession.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FC25CB0F2F441F010029ED13 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB2D2F441FAD0029ED13 /* FetchNextEventUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		FC25CB102F441F010029ED13 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB0E2F441F010029ED13 /* Entities */,
+				FC25CB0F2F441F010029ED13 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		FC25CB132F441F010029ED13 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB652F4436A80029ED13 /* WorkSession */,
+				FC25CB432F4427180029ED13 /* Dashboard */,
+				FC25CB722F443B040029ED13 /* RootTabView.swift */,
+				FC25CB742F443C3E0029ED13 /* AuthManager.swift */,
+				FC25CB822F4442310029ED13 /* LocalNotificationManager.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		FC25CB192F441F010029ED13 /* FocusTiming */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB0D2F441F010029ED13 /* Data */,
+				FC25CB102F441F010029ED13 /* Domain */,
+				FC25CB132F441F010029ED13 /* Presentation */,
+				FC25CB142F441F010029ED13 /* Assets.xcassets */,
+				FC25CB152F441F010029ED13 /* client_765664865086-q6lhblsiq223n9n4ao3gipaeii7h9ah1.apps.googleusercontent.com.plist */,
+				FC25CB172F441F010029ED13 /* FocusTimingApp.swift */,
+				FC25CB182F441F010029ED13 /* Info.plist */,
+			);
+			path = FocusTiming;
+			sourceTree = "<group>";
+		};
+		FC25CB3D2F4427180029ED13 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB4E2F4427870029ED13 /* GlassCard.swift */,
+				FC25CB502F44279B0029ED13 /* GreetingHeaderView.swift */,
+				FC25CB522F4427A90029ED13 /* EventCardView.swift */,
+				FC25CB542F4427B60029ED13 /* UpcomingEventRow.swift */,
+				FC25CB582F442B450029ED13 /* SkeletonCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FC25CB3E2F4427180029ED13 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB482F4427500029ED13 /* AppSpacing.swift */,
+				FC25CB4A2F44275E0029ED13 /* AppColors.swift */,
+				FC25CB4C2F44276D0029ED13 /* AppTypography.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		FC25CB402F4427180029ED13 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB3F2F4427180029ED13 /* ContentView.swift */,
+				FC25CB562F4428540029ED13 /* DashboardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC25CB422F4427180029ED13 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB412F4427180029ED13 /* DashboardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FC25CB432F4427180029ED13 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB3D2F4427180029ED13 /* Components */,
+				FC25CB3E2F4427180029ED13 /* Design */,
+				FC25CB402F4427180029ED13 /* View */,
+				FC25CB422F4427180029ED13 /* ViewModel */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		FC25CB5B2F442C350029ED13 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB5C2F442C370029ED13 /* AuthTokenManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FC25CB5F2F44360A0029ED13 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB292F441F740029ED13 /* NextEventResponse.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		FC25CB652F4436A80029ED13 /* WorkSession */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB772F443E050029ED13 /* Components */,
+				FC25CB702F4438D40029ED13 /* View */,
+				FC25CB662F4436B20029ED13 /* WorkSessionBuilder.swift */,
+				FC25CB682F4436C90029ED13 /* WorkSessionManager.swift */,
+				FC25CB6A2F44371C0029ED13 /* WorkSessionState.swift */,
+			);
+			path = WorkSession;
+			sourceTree = "<group>";
+		};
+		FC25CB702F4438D40029ED13 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB6F2F4438D40029ED13 /* WorkSessionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC25CB772F443E050029ED13 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FC25CB782F443E080029ED13 /* FocusCircleView.swift */,
+				FC25CB7A2F443E1A0029ED13 /* DayProgressView.swift */,
+				FC25CB7C2F443E200029ED13 /* WorkBlocksSection.swift */,
+				FC25CB7E2F443E270029ED13 /* WorkBlockRow.swift */,
+				FC25CB802F443F610029ED13 /* CircularProgressRing.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC25CADA2F4413520029ED13 /* FocusTiming */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC25CAE62F4413540029ED13 /* Build configuration list for PBXNativeTarget "FocusTiming" */;
+			buildPhases = (
+				FC25CAD72F4413520029ED13 /* Sources */,
+				FC25CAD82F4413520029ED13 /* Frameworks */,
+				FC25CAD92F4413520029ED13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusTiming;
+			packageProductDependencies = (
+				FC25CAF12F44151F0029ED13 /* GoogleSignIn */,
+				FC25CAF32F44151F0029ED13 /* GoogleSignInSwift */,
+			);
+			productName = FocusTiming;
+			productReference = FC25CADB2F4413520029ED13 /* FocusTiming.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC25CAD32F4413520029ED13 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					FC25CADA2F4413520029ED13 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+				};
+			};
+			buildConfigurationList = FC25CAD62F4413520029ED13 /* Build configuration list for PBXProject "FocusTiming" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC25CAD22F4413520029ED13;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FC25CAF02F44151F0029ED13 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FC25CADC2F4413520029ED13 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC25CADA2F4413520029ED13 /* FocusTiming */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC25CAD92F4413520029ED13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC25CB1C2F441F010029ED13 /* Assets.xcassets in Resources */,
+				FC25CB1D2F441F010029ED13 /* client_765664865086-q6lhblsiq223n9n4ao3gipaeii7h9ah1.apps.googleusercontent.com.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC25CAD72F4413520029ED13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC25CB7D2F443E200029ED13 /* WorkBlocksSection.swift in Sources */,
+				FC25CB222F441F200029ED13 /* APIRouter.swift in Sources */,
+				FC25CB832F4442310029ED13 /* LocalNotificationManager.swift in Sources */,
+				FC25CB752F443C3E0029ED13 /* AuthManager.swift in Sources */,
+				FC25CB792F443E080029ED13 /* FocusCircleView.swift in Sources */,
+				FC25CB812F443F610029ED13 /* CircularProgressRing.swift in Sources */,
+				FC25CB242F441F2F0029ED13 /* GoogleCalendarRouter.swift in Sources */,
+				FC25CB2E2F441FAD0029ED13 /* FetchNextEventUseCase.swift in Sources */,
+				FC25CB492F4427500029ED13 /* AppSpacing.swift in Sources */,
+				FC25CB732F443B040029ED13 /* RootTabView.swift in Sources */,
+				FC25CB4F2F4427870029ED13 /* GlassCard.swift in Sources */,
+				FC25CB532F4427A90029ED13 /* EventCardView.swift in Sources */,
+				FC25CB712F4438D40029ED13 /* WorkSessionView.swift in Sources */,
+				FC25CB592F442B450029ED13 /* SkeletonCard.swift in Sources */,
+				FC25CB1B2F441F010029ED13 /* FocusTimingApp.swift in Sources */,
+				FC25CB7B2F443E1A0029ED13 /* DayProgressView.swift in Sources */,
+				FC25CB202F441F0B0029ED13 /* HTTPMethod.swift in Sources */,
+				FC25CB2C2F441F820029ED13 /* CalendarRepository.swift in Sources */,
+				FC25CB282F441F540029ED13 /* NetworkClient.swift in Sources */,
+				FC25CB512F44279B0029ED13 /* GreetingHeaderView.swift in Sources */,
+				FC25CB2A2F441F740029ED13 /* NextEventResponse.swift in Sources */,
+				FC25CB7F2F443E270029ED13 /* WorkBlockRow.swift in Sources */,
+				FC25CB612F44360F0029ED13 /* WorkBlock.swift in Sources */,
+				FC25CB4B2F44275E0029ED13 /* AppColors.swift in Sources */,
+				FC25CB572F4428540029ED13 /* DashboardView.swift in Sources */,
+				FC25CB4D2F44276D0029ED13 /* AppTypography.swift in Sources */,
+				FC25CB672F4436B20029ED13 /* WorkSessionBuilder.swift in Sources */,
+				FC25CB442F4427180029ED13 /* ContentView.swift in Sources */,
+				FC25CB452F4427180029ED13 /* DashboardViewModel.swift in Sources */,
+				FC25CB552F4427B60029ED13 /* UpcomingEventRow.swift in Sources */,
+				FC25CB692F4436C90029ED13 /* WorkSessionManager.swift in Sources */,
+				FC25CB5D2F442C370029ED13 /* AuthTokenManager.swift in Sources */,
+				FC25CB6B2F44371C0029ED13 /* WorkSessionState.swift in Sources */,
+				FC25CB632F4436240029ED13 /* WorkSession.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FC25CAE42F4413540029ED13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FC25CAE52F4413540029ED13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FC25CAE72F4413540029ED13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T594C3YA28;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FocusTiming/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rivemaldo.FocusTiming;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FC25CAE82F4413540029ED13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T594C3YA28;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FocusTiming/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rivemaldo.FocusTiming;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC25CAD62F4413520029ED13 /* Build configuration list for PBXProject "FocusTiming" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC25CAE42F4413540029ED13 /* Debug */,
+				FC25CAE52F4413540029ED13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC25CAE62F4413540029ED13 /* Build configuration list for PBXNativeTarget "FocusTiming" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC25CAE72F4413540029ED13 /* Debug */,
+				FC25CAE82F4413540029ED13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC25CAF02F44151F0029ED13 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC25CAF12F44151F0029ED13 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC25CAF02F44151F0029ED13 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		FC25CAF32F44151F0029ED13 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC25CAF02F44151F0029ED13 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FC25CAD32F4413520029ED13 /* Project object */;
+}
