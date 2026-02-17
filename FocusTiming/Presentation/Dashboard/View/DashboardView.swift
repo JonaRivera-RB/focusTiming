@@ -82,7 +82,7 @@ struct DashboardView: View {
             if let current = viewModel.currentEvent {
                 EventCardView(
                     title: "Evento actual",
-                    eventName: current.summary ?? "",
+                    eventName: displayTitle(for: current),
                     timeLabel: "Transcurrido",
                     timeValue: viewModel.format(viewModel.elapsedTime),
                     style: .active
@@ -92,7 +92,7 @@ struct DashboardView: View {
             if let next = viewModel.nextEvent {
                 EventCardView(
                     title: "Siguiente reunión",
-                    eventName: next.summary ?? "",
+                    eventName: displayTitle(for: next),
                     timeLabel: "Faltan",
                     timeValue: viewModel.format(viewModel.nextEventRemaining),
                     style: .upcoming
@@ -108,12 +108,16 @@ struct DashboardView: View {
                     
                     ForEach(viewModel.upcomingEvents.prefix(3), id: \.id) { event in
                         UpcomingEventRow(
-                            title: event.summary ?? "",
-                            time: event.start.dateTime ?? ""
+                            title: displayTitle(for: event),
+                            time: viewModel.formattedTime(for: event)
                         )
                     }
                 }
             }
         }
+    }
+    
+    func displayTitle(for event: Event) -> String {
+        return event.summary?.isEmpty == false ? event.summary! : "Ocupado • \(event.calendarId ?? "Privado")"
     }
 }

@@ -45,6 +45,7 @@
 		FC25CB7F2F443E270029ED13 /* WorkBlockRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB7E2F443E270029ED13 /* WorkBlockRow.swift */; };
 		FC25CB812F443F610029ED13 /* CircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB802F443F610029ED13 /* CircularProgressRing.swift */; };
 		FC25CB832F4442310029ED13 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25CB822F4442310029ED13 /* LocalNotificationManager.swift */; };
+		FC5110C82F44BF240043D4A0 /* CalendarListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5110C72F44BF240043D4A0 /* CalendarListResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		FC25CB7E2F443E270029ED13 /* WorkBlockRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkBlockRow.swift; sourceTree = "<group>"; };
 		FC25CB802F443F610029ED13 /* CircularProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressRing.swift; sourceTree = "<group>"; };
 		FC25CB822F4442310029ED13 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		FC5110C72F44BF240043D4A0 /* CalendarListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				FC25CB292F441F740029ED13 /* NextEventResponse.swift */,
+				FC5110C72F44BF240043D4A0 /* CalendarListResponse.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				FC25CB732F443B040029ED13 /* RootTabView.swift in Sources */,
 				FC25CB4F2F4427870029ED13 /* GlassCard.swift in Sources */,
 				FC25CB532F4427A90029ED13 /* EventCardView.swift in Sources */,
+				FC5110C82F44BF240043D4A0 /* CalendarListResponse.swift in Sources */,
 				FC25CB712F4438D40029ED13 /* WorkSessionView.swift in Sources */,
 				FC25CB592F442B450029ED13 /* SkeletonCard.swift in Sources */,
 				FC25CB1B2F441F010029ED13 /* FocusTimingApp.swift in Sources */,

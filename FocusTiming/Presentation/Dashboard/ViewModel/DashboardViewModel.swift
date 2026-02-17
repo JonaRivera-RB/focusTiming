@@ -68,7 +68,7 @@ final class DashboardViewModel: ObservableObject {
     
     
     // MARK: - Private Async Work
-
+    
     private func performLoad() async {
         
         print("Task is cancelled at start:", Task.isCancelled)
@@ -91,43 +91,39 @@ final class DashboardViewModel: ObservableObject {
             }
 
             let sortedEvents = events.sorted {
-                guard let start1 = parse($0.start.dateTime),
-                      let start2 = parse($1.start.dateTime) else { return false }
-                return start1 < start2
+                (parse($0.start) ?? .distantFuture) <
+                (parse($1.start) ?? .distantFuture)
             }
 
-            upcomingEvents = []
+            // 3️⃣ Evento actual (primero que contenga now)
+            currentEvent = sortedEvents.first { event in
+                guard let start = parse(event.start),
+                      let end = parse(event.end) else { return false }
+                return now >= start && now <= end
+            }
 
-            for event in sortedEvents {
-                guard let start = parse(event.start.dateTime),
-                      let end = parse(event.end.dateTime) else { continue }
+            let futureEvents = sortedEvents.filter { event in
+                guard let start = parse(event.start) else { return false }
+                return start > now
+            }
 
-                if now >= start && now <= end {
-                    currentEvent = event
-                } else if start > now {
-                    if nextEvent == nil {
-                        nextEvent = event
-                    }
-                    upcomingEvents.append(event)
-                }
+            nextEvent = futureEvents.first
+            upcomingEvents = Array(futureEvents.dropFirst())
+
+            if currentEvent == nil && nextEvent == nil {
+                state = .empty
+                return
             }
 
             startTimer()
             state = .loaded
 
-        } catch is CancellationError {
-            
-            print("ℹ️ Task cancelled safely")
-            return
-            
         } catch {
             
             print("Task cancelled inside catch:", Task.isCancelled)
             state = .error(error.localizedDescription)
         }
     }
-
-
     
     // MARK: - Timer
     
@@ -144,20 +140,28 @@ final class DashboardViewModel: ObservableObject {
     }
     
     private func updateTime() {
+        
         let now = Date()
         
+        // 🔹 Evento actual
         if let event = currentEvent,
-           let start = parse(event.start.dateTime),
-           let end = parse(event.end.dateTime) {
+           let start = parse(event.start),
+           let end = parse(event.end) {
             
-            elapsedTime = now.timeIntervalSince(start)
-            currentEventRemaining = end.timeIntervalSince(now)
+            elapsedTime = max(0, now.timeIntervalSince(start))
+            currentEventRemaining = max(0, end.timeIntervalSince(now))
+        } else {
+            elapsedTime = 0
+            currentEventRemaining = 0
         }
         
+        // 🔹 Próximo evento
         if let event = nextEvent,
-           let start = parse(event.start.dateTime) {
+           let start = parse(event.start) {
             
-            nextEventRemaining = start.timeIntervalSince(now)
+            nextEventRemaining = max(0, start.timeIntervalSince(now))
+        } else {
+            nextEventRemaining = 0
         }
     }
     
@@ -176,9 +180,19 @@ final class DashboardViewModel: ObservableObject {
     
     // MARK: - Helpers
     
-    private func parse(_ dateString: String?) -> Date? {
-        guard let dateString else { return nil }
-        return isoFormatter.date(from: dateString)
+    private func parse(_ eventDate: EventDate) -> Date? {
+        
+        if let dateTime = eventDate.dateTime {
+            return isoFormatter.date(from: dateTime)
+        }
+        
+        if let date = eventDate.date {
+            let formatter = ISO8601DateFormatter()
+            formatter.formatOptions = [.withFullDate]
+            return formatter.date(from: date)
+        }
+        
+        return nil
     }
     
     func format(_ interval: TimeInterval) -> String {
@@ -194,8 +208,14 @@ final class DashboardViewModel: ObservableObject {
     }
     
     func formattedTime(for event: Event) -> String {
-        guard let start = parse(event.start.dateTime),
-              let end = parse(event.end.dateTime) else {
+        
+        // 🔹 Evento all-day
+        if event.start.date != nil {
+            return "Todo el día"
+        }
+        
+        guard let start = parse(event.start),
+              let end = parse(event.end) else {
             return ""
         }
         

@@ -5,8 +5,11 @@
 //  Created by Jonathan Rivera on 16/02/26.
 //
 
+import Foundation
+
 protocol CalendarRepositoryProtocol {
-    func fetchUpcomingEvents(token: String) async throws -> [Event]
+    func fetchCalendarList(token: String) async throws -> [CalendarItem]
+    func fetchEvents(calendarId: String, token: String) async throws -> [Event]
 }
 
 final class CalendarRepository: CalendarRepositoryProtocol {
@@ -17,9 +20,28 @@ final class CalendarRepository: CalendarRepositoryProtocol {
         self.network = network
     }
     
-    func fetchUpcomingEvents(token: String) async throws -> [Event] {
-        let router = GoogleCalendarRouter.nextEvent(accessToken: token)
-        let response: NextEventResponse = try await network.request(router)
+    func fetchCalendarList(token: String) async throws -> [CalendarItem] {
+        let router = GoogleCalendarRouter.calendarList(accessToken: token)
+        let response: CalendarListResponse = try await network.request(router)
         return response.items
+    }
+
+    func fetchEvents(calendarId: String, token: String) async throws -> [Event] {
+        let router = GoogleCalendarRouter.events(
+            calendarId: calendarId,
+            accessToken: token
+        )
+        
+        let response: NextEventResponse = try await network.request(router)
+        
+        return response.items.map { item in
+            Event(
+                id: item.id,
+                summary: item.summary,
+                start: item.start,
+                end: item.end,
+                calendarId: calendarId
+            )
+        }
     }
 }
